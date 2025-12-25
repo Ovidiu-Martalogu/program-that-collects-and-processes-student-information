@@ -1,26 +1,38 @@
 console.log(`loading program....`);
 
-// let students = {
-//     name: name,
-//     age: age,
-//     attendance: attendance
-// };
-// let allStudents=prompt(`How many students are in class?`)
-// allStudents = Number(allStudents);
+const students = [];
+let addMore = true;
 
-
+// 1. function get user info
 function getUserInfo() {
     const name = prompt("Enter your name:");
-    let age = (prompt("Enter your age:"));
+    let age = prompt("Enter your age:");
     age = Number(age);
     const attendance = confirm("Are you present?");
-    const students = {
+
+    return {
         name: name,
         age: age,
         attendance: attendance
     };
-    console.log(students);
-    return students;
 }
-// Call the function
-getUserInfo();
+
+// 2. collect data for multiple students
+
+while (addMore) {
+    const student = getUserInfo();
+    students.push(student);
+    addMore = confirm("Do you want to add another student?");
+}
+console.log(students);
+
+for (let i = 0; i < students.length; i++) {
+    if (students.attendance ===true) {
+        console.log(`present students are: ${students.name}`);
+    
+    
+}else{
+    console.log(`nu se poate`);
+    
+}
+}
