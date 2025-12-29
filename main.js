@@ -25,14 +25,36 @@ while (addMore) {
     addMore = confirm("Do you want to add another student?");
 }
 console.log(students);
+console.log(students.attendance);
+
+
+//3. show the attendance percentage
+
+let presentStudents = 0;
 
 for (let i = 0; i < students.length; i++) {
-    if (students.attendance ===true) {
-        console.log(`present students are: ${students.name}`);
-    
-    
-}else{
-    console.log(`nu se poate`);
-    
-}
-}
+    if (students[i].attendance === true) {
+        presentStudents++;
+    }
+} console.log(presentStudents);
+
+const percentageAttendance = (presentStudents / students.length) * 100;
+
+console.log(`The attendance percentage is ${percentageAttendance}%`);
+alert(`The attendance percentage is ${percentageAttendance}%`);
+
+//4. function createTeams
+
+function createTeams(numberOfTeams) {
+    //store only present student as array;
+    const presentStudentsArray = [];
+
+    for (let i = 0; i < students.length; i++) {
+        if (students[i].attendance === true) {
+            console.log(students[i].name + " este prezent");
+            presentStudentsArray.push(students[i].name);
+        }
+    }
+
+
+} createTeams(3);
