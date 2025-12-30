@@ -42,7 +42,7 @@ function showAttendancePercentage() {
     const percentageAttendance = (presentStudents / students.length) * 100;
     console.log(`The attendance percentage is ${percentageAttendance}%`);
     alert(`The attendance percentage is ${percentageAttendance}%`);
-}showAttendancePercentage();
+} showAttendancePercentage();
 
 //4. function createTeams
 
@@ -56,5 +56,31 @@ function createTeams(numberOfTeams) {
         }
     }
 
+    // fisher-yates
+    for (let i = presentStudentsArray.length - 1; i > 0; i--) {
+        const randomIndex = Math.floor(Math.random() * (i + 1));
+        [presentStudentsArray[i], presentStudentsArray[randomIndex]] = [presentStudentsArray[randomIndex], presentStudentsArray[i]];
+    }
 
+    console.log(`Present students are: ${presentStudentsArray}`);
+
+      
+    // make the teams
+    const teams = [];
+    for (let i = 0; i < numberOfTeams; i++) {
+        teams[i]=[];
+        console.log(`TEAM ${[i+1]} :\n ${presentStudentsArray[i]}`);
+        
+    }
+
+    //distribute?
+    /*
+    for (let i = 1; i <= presentStudentsArray.length; i++) {
+        const teamIndex = i%numberOfTeams;
+        teams[teamIndex].push(presentStudentsArray[i]);
+       
+        console.log(`teams are :${teams}`);
+    }
+*/
 } createTeams(3);
+
