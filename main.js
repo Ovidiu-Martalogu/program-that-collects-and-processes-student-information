@@ -14,12 +14,11 @@ function getUserInfo() {
         age: age,
         attendance: attendance
     };
-}
+} console.log(students);
+
 
 // 2. collect data for multiple students
-//Use this function to collect data for
-//  multiple students and store their 
-// information in an array.
+
 function collectData() {
     let addMore = true;
     while (addMore) {
@@ -27,7 +26,7 @@ function collectData() {
         students.push(student);
         addMore = confirm("Do you want to add another student?");
     }
-    console.log(students);
+
 } collectData();
 
 
@@ -38,8 +37,9 @@ function showAttendancePercentage() {
         if (students[i].attendance === true) {
             presentStudents++;
         }
-    } console.log(presentStudents);
+    }
     const percentageAttendance = (presentStudents / students.length) * 100;
+    console.log(`Number of present students are :${presentStudents}`);
     console.log(`The attendance percentage is ${percentageAttendance}%`);
     alert(`The attendance percentage is ${percentageAttendance}%`);
 } showAttendancePercentage();
@@ -47,11 +47,11 @@ function showAttendancePercentage() {
 //4. function createTeams
 
 function createTeams(numberOfTeams) {
-    //store only present student as array;
+    
     const presentStudentsArray = [];
     for (let i = 0; i < students.length; i++) {
         if (students[i].attendance === true) {
-            console.log(students[i].name + " este prezent");
+           
             presentStudentsArray.push(students[i].name);
         }
     }
@@ -62,25 +62,30 @@ function createTeams(numberOfTeams) {
         [presentStudentsArray[i], presentStudentsArray[randomIndex]] = [presentStudentsArray[randomIndex], presentStudentsArray[i]];
     }
 
-    console.log(`Present students are: ${presentStudentsArray}`);
+    console.log(`Random present students are: ${presentStudentsArray}`);
 
-      
-    // make the teams
+
+
     const teams = [];
     for (let i = 0; i < numberOfTeams; i++) {
-        teams[i]=[];
-        console.log(`TEAM ${[i+1]} :\n ${presentStudentsArray[i]}`);
+        teams[i] = [];
         
     }
 
-    //distribute?
-    /*
-    for (let i = 1; i <= presentStudentsArray.length; i++) {
-        const teamIndex = i%numberOfTeams;
+ 
+    for (let i = 0; i < presentStudentsArray.length; i++) {
+        const teamIndex = i % numberOfTeams;
         teams[teamIndex].push(presentStudentsArray[i]);
-       
-        console.log(`teams are :${teams}`);
-    }
-*/
-} createTeams(3);
 
+        console.log(`teams ${[i]} are :${teams[teamIndex]}`);
+    }
+
+ 
+    for (let i = 0; i < teams.length; i++) {
+        console.log("TEAM: " + (i + 1));
+
+        for (let j = 0; j < teams[i].length; j++) {
+            console.log(teams[i][j]);
+        }
+    }
+} createTeams(3);
