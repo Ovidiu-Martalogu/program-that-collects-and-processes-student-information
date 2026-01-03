@@ -1,5 +1,4 @@
 console.log(`loading program....`);
-
 const students = [];
 
 // 1. function get user info
@@ -8,14 +7,12 @@ function getUserInfo() {
     let age = prompt("Enter your age:");
     age = Number(age);
     const attendance = confirm("Are you present?");
-
     return {
         name: name,
         age: age,
         attendance: attendance
     };
 } console.log(students);
-
 
 // 2. collect data for multiple students
 
@@ -28,7 +25,6 @@ function collectData() {
     }
 
 } collectData();
-
 
 //3. show the attendance percentage
 function showAttendancePercentage() {
@@ -47,11 +43,11 @@ function showAttendancePercentage() {
 //4. function createTeams
 
 function createTeams(numberOfTeams) {
-    
+
     const presentStudentsArray = [];
     for (let i = 0; i < students.length; i++) {
         if (students[i].attendance === true) {
-           
+
             presentStudentsArray.push(students[i].name);
         }
     }
@@ -64,23 +60,17 @@ function createTeams(numberOfTeams) {
 
     console.log(`Random present students are: ${presentStudentsArray}`);
 
-
-
     const teams = [];
     for (let i = 0; i < numberOfTeams; i++) {
         teams[i] = [];
-        
     }
 
- 
     for (let i = 0; i < presentStudentsArray.length; i++) {
         const teamIndex = i % numberOfTeams;
         teams[teamIndex].push(presentStudentsArray[i]);
 
-        console.log(`teams ${[i]} are :${teams[teamIndex]}`);
     }
 
- 
     for (let i = 0; i < teams.length; i++) {
         console.log("TEAM: " + (i + 1));
 
